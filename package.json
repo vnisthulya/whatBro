@@ -1,0 +1,35 @@
+{
+  "name": "whatbro",
+  "version": "1.0.0",
+  "description": "whatBro : the food delivering app",
+  "keywords": [
+    "food",
+    "delivering",
+    "delivering",
+    "app",
+    "food"
+  ],
+  "homepage": "https://github.com/vnisthulya/whatBro#readme",
+  "bugs": {
+    "url": "https://github.com/vnisthulya/whatBro/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vnisthulya/whatBro.git"
+  },
+  "license": "ISC",
+  "author": "S Vinod",
+  "type": "commonjs",
+  "main": "App.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "Just"
+  },
+  "devDependencies": {
+    "parcel": "^2.13.3",
+    "process": "^0.11.10",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}
