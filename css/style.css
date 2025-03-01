@@ -2,19 +2,64 @@ body {
     background-color:beige;
     color: black;
 }
+.app-container {
+    margin: auto 60px;
+}
 /* Header */
-.logo {
-    width: 200px;
-    height: auto;
+.header-container {        
+    display:flex;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
 }
 
-/* Header - nav */
-
-
+.logo-container img {
+    width: 125px;
+    height: auto;    
+}
+.navList > ul {
+    display:flex;
+    list-style: none;
+}
+.navList > ul > li {
+    padding: 8px;
+}
+.navList a {
+    color: blueviolet;
+    text-decoration-style: none;
+    text-decoration: none;
+}
 
 
 /* Body */
+.body {
 
+}
 
+.search-bar {
+    margin: 25px  auto;
+}
+.search-bar img {
+    display: inline;
+    width: 20px;
+    padding: 5px;
+    padding-bottom: 0;
+}
+.resto-container {
+    display: flex;
+}
+.res-card {
+    width: 200px;
+    height: 240px;
+    border-radius: 30px;
+    background-color: #f7f7f7;
+    -webkit-box-shadow: 10px 9px 13px -4px rgba(0,0,0,0.16);
+    -moz-box-shadow: 10px 9px 13px -4px rgba(0,0,0,0.16);
+    box-shadow: 10px 9px 13px -4px rgba(0,0,0,0.16);    
+}
+.food-img {
+    width: 100%;
+    border-radius: 30px 30px 0 0;
+    height: auto;
+}
 
 /* Footer */
