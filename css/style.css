@@ -1,15 +1,18 @@
 body {
-    background-color:beige;
+    background-color:rgb(244, 255, 254);
     color: black;
 }
 .app-container {
     margin: auto 60px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+
+
 /* Header */
 .header-container {        
     display:flex;
     justify-content: space-between;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #ece2e2;
 }
 
 .logo-container img {
@@ -24,7 +27,7 @@ body {
     padding: 8px;
 }
 .navList a {
-    color: blueviolet;
+    color: rgb(152, 99, 60);
     text-decoration-style: none;
     text-decoration: none;
 }
@@ -38,23 +41,50 @@ body {
 .search-bar {
     margin: 25px  auto;
 }
+.search-bar a {
+    text-decoration: none;
+    color: rgb(22, 72, 112);
+}
 .search-bar img {
     display: inline;
     width: 20px;
-    padding: 5px;
     padding-bottom: 0;
 }
 .resto-container {
     display: flex;
+    flex-wrap: wrap;
+    
 }
 .res-card {
     width: 200px;
-    height: 240px;
+    height: 270px;
+    margin: 10px auto;
     border-radius: 30px;
     background-color: #f7f7f7;
     -webkit-box-shadow: 10px 9px 13px -4px rgba(0,0,0,0.16);
     -moz-box-shadow: 10px 9px 13px -4px rgba(0,0,0,0.16);
     box-shadow: 10px 9px 13px -4px rgba(0,0,0,0.16);    
+    cursor: pointer;
+}
+.res-card > h2, .res-card > h4, .res-card .starNtime h3 {
+    font-size: 16;
+    margin:4px;
+}
+.res-card .starNtime h3 {
+    display: flex;
+    font-size: 14;
+}
+.starNtime {
+    display: inline;
+    flex-flow: row;
+}
+.starNtime img {
+    width: 8px;
+    height: auto;
+}
+.res-card > h4 {
+    font-size: 12;
+    font-weight: 400;
 }
 .food-img {
     width: 100%;
@@ -63,3 +93,10 @@ body {
 }
 
 /* Footer */
+
+.footer-container {
+    margin: 60px auto;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #ece2e2;
+}
