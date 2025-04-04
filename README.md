@@ -31,3 +31,4 @@ Footer :: components>>
 */
 
 
+# React Hooks normal JS function::: 
