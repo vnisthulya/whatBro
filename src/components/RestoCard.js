@@ -12,7 +12,7 @@ const RestoCard = (props) => {
         costForTwo, 
         locality
             } = resData?.info;
-    console.log(props, "props get")
+
     return(
         <div className='res-card'>
             <img className="food-img" alt={resData.info.name} src={ 

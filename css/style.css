@@ -42,7 +42,6 @@ body {
     margin: 25px  auto;
     padding: 15px;
     background-color: rgb(238, 231, 228);
-    /* height: 125px; */
 }
 .search-bar a {
     text-decoration: none;
@@ -52,6 +51,23 @@ body {
     display: inline;
     width: 20px;
     padding-bottom: 0;
+}
+.filterBtn {
+    display: inline-flex;
+}
+.filterBtn button {
+    margin: 10px;
+} 
+.filterBtn h4 span {
+    font-style: italic;
+    font-size: 12px;
+    color: rgb(253, 172, 73);
+}
+.filterBtn img {
+    width: 10px;
+    height: 10px;
+    display: inline;
+    padding-top: 15px;
 }
 .resto-container {
     display: flex;
