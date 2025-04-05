@@ -6,6 +6,26 @@ body {
     margin: auto 60px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+.skimmer {
+    display: flex;
+    flex-wrap: wrap;
+}
+/* Skimmer UI */
+.skimmer-search-bar {
+    width: 100%;
+    height: 100px;
+    margin:  25px auto;
+    background-color: rgb(238, 231, 228);
+    border-radius: 12px;
+}
+.skimmer-card {
+    width: 200px;
+    height: 300px;
+    margin: 10px auto;
+    border-radius: 12px;
+    background-color: #f7f7f7;
+    border: 1px solid #f7e6e6;
+}
 
 
 /* Header */
@@ -14,7 +34,6 @@ body {
     justify-content: space-between;
     border-bottom: 1px solid #ece2e2;
 }
-
 .logo-container img {
     width: 125px;
     height: auto;    
@@ -35,13 +54,14 @@ body {
 
 /* Body */
 .body {
-
+ flex: unset;
 }
 
 .search-bar {
     margin: 25px  auto;
     padding: 15px;
     background-color: rgb(238, 231, 228);
+    border-radius: 8px;
 }
 .search-bar a {
     text-decoration: none;
@@ -56,7 +76,10 @@ body {
     display: inline-flex;
 }
 .filterBtn button {
-    margin: 10px;
+    margin: 15px 5px;
+    border-radius: 5px;
+    padding: 0px 22px;
+    height: 30px;
 } 
 .filterBtn h4 span {
     font-style: italic;
