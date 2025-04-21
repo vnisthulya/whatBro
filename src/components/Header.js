@@ -1,4 +1,6 @@
 import logo from '../../img/Logo.png';
+import { useState } from 'react';
+
 
 
 const Logo = () => {
@@ -10,6 +12,10 @@ const Logo = () => {
 }
 
 const Header = () => {
+    console("Rendering.... Header");
+    const [logBtnValue, setlogBtnValue] = useState('Login');
+    // let logBtnValue ='Login';
+    
     return (
     <div id='header-container' className='header-container'>
         <Logo />
@@ -19,6 +25,12 @@ const Header = () => {
                 <li><a href='#'> Products </a></li>
                 <li><a href='#'> Contact us </a></li>
                 <li><a href='#'> Cart </a></li>
+                <button className='loginBtn' onClick={
+                    () => {
+                        logBtnValue == "Login" ? setlogBtnValue('Logout') : setlogBtnValue('Login');
+                        console.log("but but::", logBtnValue);    
+                    }
+                } > {logBtnValue} </button>
             </ul>
         </div>
     </div>

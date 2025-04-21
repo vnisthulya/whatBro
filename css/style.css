@@ -50,7 +50,10 @@ body {
     text-decoration-style: none;
     text-decoration: none;
 }
-
+.loginBtn {
+    width: 112px;
+    cursor: pointer;
+}
 
 /* Body */
 .body {

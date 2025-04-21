@@ -22,19 +22,16 @@ const Body = () => {
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.0843007&lng=80.2704622&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const jsonData = await restData.json();
-    console.log("Live API call", jsonData);
+    // console.log("Live API call", jsonData);
     setrestaurantSortList(jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-    console.log("filtering the card data::::", restaurantSortList);
+    // console.log("filtering the card data::::", restaurantSortList);
   }
-  if (restaurantSortList == 0) {
-    return (
-    <div >
-      <SkimmerUI />
-    </div>
-  );}
 
-  console.log("rendering cycle: ", );
-  return(
+  // conditional rendering ::: 
+
+  return restaurantSortList.length == 0 ? ( 
+  <SkimmerUI /> 
+  ) : (
       <div className='body'>
           <div className='search-bar'>
             <form >
