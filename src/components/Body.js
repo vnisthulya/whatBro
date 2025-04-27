@@ -2,7 +2,6 @@ import searchIcon from '../../img/search.png';
 import starIcon from '../../img/star.png';
 import RestoCard from './RestoCard';
 import SkimmerUI from './SkimmerUI';
-import { restoList } from '../utils/constants'; 
 import { useEffect, useState } from 'react';
 
 
@@ -11,7 +10,11 @@ import { useEffect, useState } from 'react';
 const Body = () => {
 
   const [ restaurantSortList, setrestaurantSortList ] = useState([]);
-  // const skimmerUI = 
+  const [filteredRestaurant, setFiteredRestaurant] = useState([]);
+  const [ searchText, setSearchText] = useState("");
+  const [debounceTimeout, setDebounceTimeout] = useState(null);
+
+  console.log("reconcilation........", restaurantSortList);
   useEffect(() => {
     console.log(" testing useEffect", );
     fetchData();
@@ -24,29 +27,86 @@ const Body = () => {
     const jsonData = await restData.json();
     // console.log("Live API call", jsonData);
     setrestaurantSortList(jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setFiteredRestaurant(jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     // console.log("filtering the card data::::", restaurantSortList);
   }
 
-  // conditional rendering ::: 
+
+  // on change filter with debouncing
+  const handleSearch = (text) => { 
+    const filterSearch = restaurantSortList.filter((res) => 
+      // Search through cusine 
+      res.info.cuisines.some((cuisine) =>
+        cuisine.toLowerCase().includes(text.toLowerCase())
+      )
+      // Search through Restaurant names 
+      // res.info.name.toLowerCase().includes(text.toLowerCase())
+    );
+    setFiteredRestaurant(filterSearch);
+  };
+
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    setSearchText(value);
+  
+    if (debounceTimeout) {
+      clearTimeout(debounceTimeout);
+    }
+  
+    const newTimeout = setTimeout(() => {
+      console.log("Debounced Search...", value);
+      handleSearch(value);
+    }, 1500); // 1000ms = 1 second
+  
+    setDebounceTimeout(newTimeout);
+  };
+
+  //  debouncing ends
+
+  // conditional rendering :::
 
   return restaurantSortList.length == 0 ? ( 
   <SkimmerUI /> 
   ) : (
       <div className='body'>
           <div className='search-bar'>
-            <form >
-              <label>Search </label>
-              <img src={searchIcon} alt='search-icon' />
-              
-            </form>   
+            <div className='search'>
+              <img src={searchIcon} alt='search-icon' /> 
+              {/* <input type="text"
+                className='search-box'
+                value={searchText}
+                onChange={(e)=> {
+                  setSearchText(e.target.value);
+                }}
+              /> */}
+              <input
+                type="text"
+                className='search-box'
+                value={searchText}
+                onChange={handleInputChange}
+                placeholder="Search cuisines..."
+              />
+              {/* <button
+                onClick={() => {
+                  console.log("filtering through searchbox...", searchText);
+                  const filterSearch = restaurantSortList.filter((res)=>             
+                  res.info.cuisines.some((cuisine) => 
+                  cuisine.toLowerCase().includes(searchText.toLowerCase())      
+                    // res.info.name.toLowerCase().includes(searchText.toLowerCase())
+                  );
+                  setFiteredRestaurant(filterSearch);
+                }}
+              > Search 
+              </button> */}
+            </div>
             <div className='filterBtn'> 
                 <h4> Top rated Restaurant: 4 </h4>
                 <img src={starIcon} alt='star' />
                 <button onClick={() => {
-                  const filteredList = restaurantSortList.filter(
+                  const filteredList = filteredRestaurant.filter(
                   (res) => res.info.avgRating > 4.2
                 );                
-                setrestaurantSortList(filteredList);
+                setFiteredRestaurant(filteredList);
                 }}> CLick </button>
             </div>
               
@@ -54,8 +114,8 @@ const Body = () => {
           
           <div className='resto-container'>
               {
-                  restaurantSortList.map( (restaurant) => ( 
-                  <RestoCard key={restaurant.info.id}  resData = {restaurant} />                   
+                  filteredRestaurant.map( (restaurant) => ( 
+                    <RestoCard key={restaurant.info.id}  resData = {restaurant} />                   
                   ))
               }
           </div>
