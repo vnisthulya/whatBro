@@ -1,5 +1,5 @@
 import logo from '../../img/Logo.png';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 
 
@@ -12,8 +12,15 @@ const Logo = () => {
 }
 
 const Header = () => {
-    console("Rendering.... Header");
+
     const [logBtnValue, setlogBtnValue] = useState('Login');
+
+    //  if no dependency array useEffect will called every render
+    // if dependency array is empty => on initial render only once
+    // if dependency array is high value [logBtnValue] => is called everytime the logBtnValue is updated 
+    useEffect( ()=> {
+        console.log("UseEffect called,...");
+    }, [logBtnValue]);
     // let logBtnValue ='Login';
     
     return (

@@ -154,3 +154,12 @@ body {
     justify-content: space-between;
     border-top: 1px solid #ece2e2;
 }
+
+
+/* Sub Pages starts here */
+
+/* About us page */
+
+.about-us {
+    background: rgb(129, 209, 212);
+}
