@@ -5,6 +5,7 @@ import Body from './components/Body';
 import Footer from './components/Footer';
 import About from './components/About';
 import Cart from './components/Cart';
+import Product from './components/Products';
 import { createBrowserRouter, RouterProvider } from 'react-router';
 
 
@@ -31,6 +32,10 @@ const appRouter = createBrowserRouter([
     {
         path: "/cart",
         element: <Cart />,
+    },
+    {
+        path: "/product",
+        element: <Product />,
     },
 ]);
 

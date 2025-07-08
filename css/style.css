@@ -163,3 +163,17 @@ body {
 .about-us {
     background: rgb(129, 209, 212);
 }
+
+
+/* Cart page */
+
+.cart {
+    background: #c9ba4c;
+}
+
+
+/* products page */
+
+.product {
+    background: #3c848f;
+}
